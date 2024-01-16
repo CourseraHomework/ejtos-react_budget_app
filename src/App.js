@@ -22,7 +22,8 @@ import AllocationForm from './components/AllocationForm';
 
 
 // Add code to import the other components here under
-
+//Code to import Currency.js
+import Currency from './components/Currency';
 
 import { AppProvider } from './context/AppContext';
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
-                <div className='row mt-3'>
+                <div className='row mt-4'>
                     {
                         /* Add Budget component here */
                         <div className='col-sm'>
@@ -54,9 +55,9 @@ const App = () => {
 
                    {
                         /* Add ExpenseItem component here */
-                        // <div className='col-sm'>
-                        //     <ExpenseItem />
-                        // </div>
+                        <div className='col-sm'>
+                            <Currency />
+                        </div>
                     }
 
 

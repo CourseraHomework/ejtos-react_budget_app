@@ -1,32 +1,39 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 //import react-bootstrap from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+//import Dropdown from 'react-bootstrap/Dropdown';
+//import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
 const Currency = () => {   
 
     const { title, data } = useContext(AppContext);
 
-    //const [title, setName] = useState(title);
+    const {curr} = useContext(AppContext);
 
-    const handleClick = (event) => {
+    const [selectedCurrency, selectCurrencyChange] = React.useState(curr);
 
-        const { target: { value } } = event;
-alert(value);
-        //setState({ someProperty: value });
-
+    const { dispatch } = useContext(AppContext);
+    const increaseAllocation = (val) => {
+        //alert(val);
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: val
+        });
     }
+
 
     return (
         <div className='Currency'>
-            <DropdownButton id="dropdown-basic-button" title={title}>
-                <Dropdown.Item onClick={((e) => handleClick(e))} href="#/action-1">$ Dollar</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">£ Pound</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">€ Euro</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">₹ Ruppee</Dropdown.Item>
-            </DropdownButton>
+
+            <div className='alert alert-currency' >
+                Currency <select value={selectedCurrency} onChange={(event) => selectCurrencyChange(increaseAllocation(event.target.value))}>
+                    <option value={'$'}>$ Dollar</option>
+                    <option value={'£'}>£ Pound</option>
+                    <option value={'€'}>€ Euro</option>
+                    <option value={'₹'}>₹ Ruppee</option>
+                </select>
+            </div>
         </div>
     );
 };

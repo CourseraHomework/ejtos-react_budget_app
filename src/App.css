@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.alert-currency {
+    
+    background-color: #4aff69 !important;
+    
+}
+
+.allocationFormInput{
+    text-align: right;
+    font-size: 25px !important;
+    margin-left: 15px !important;
+    margin-right: 8px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
